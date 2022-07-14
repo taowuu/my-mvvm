@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+  <div id="app">
+    <div>
+      <input v-model="name" placeholder="name">
+      <input v-model="age" placeholder="age">
+      <input v-model="email" placeholder="email">
+      <input v-model="tel" placeholder="tel">
+    </div>
+    <div>
+      <p>name: <span>{{ name }}</span></p>
+      <p>age: <span>{{ age }}</span></p>
+      <p>email: <span>{{ email }}</span></p>
+      <p>
+        <p>
+          tel: <span>{{ tel }}</span>
+        </p>
+      </p>
+    </div>
+    <button id="btn">change name</button>
+  </div>
+</body>
+<script src="my-mvvm.js"></script>
+<script>
+  // model
+  const app = new MVVM('#app', {
+    name: '',
+    age: '',
+    email: '',
+    tel: '',
+  })
+  // 点击事件监听
+  document.querySelector('#btn').addEventListener('click', function() {
+    app.setData('name', 'tao')
+  })
+</script>
+</html>
